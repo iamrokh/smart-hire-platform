@@ -1,0 +1,6 @@
+{
+  "name": "AI Career Development & Recruitment Platform",
+  "description": "An AI-powered landing page with active modules for candidate skill-gap analysis, personalized roadmap creation, job matching, and employer screening of candidates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

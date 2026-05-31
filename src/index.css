@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Fira Code", monospace;
+  
+  --color-immersive-bg: #020617;
+  --color-immersive-slate: #0f172a;
+}
+
+/* Custom radial gradient configuration for the Immersive design mode */
+.immersive-gradient-bg {
+  background: radial-gradient(circle at 10% 20%, #0f172a 0%, #020617 100%);
+}
+
+.frosted-glass-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.frosted-glass-card-interactive {
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.frosted-glass-card-interactive:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.glowing-primary-element {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
+}
+
+.glowing-amber-element {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.glowing-emerald-element {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
