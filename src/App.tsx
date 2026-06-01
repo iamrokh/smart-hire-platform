@@ -6,20 +6,25 @@ import EmployerWorkspace from "./components/EmployerWorkspace";
 
 export default function App() {
   const [activeModule, setActiveModule] = useState<"candidate" | "employer">("candidate");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved) {
+      return saved === "dark";
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
   const [hasApiKey, setHasApiKey] = useState(false);
 
-  // Synchronize dark-mode class toggles on mount and state changes
+  // Synchronize dark-mode class toggles
   useEffect(() => {
-    // Check system preference
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setDarkMode(prefersDark);
-    if (prefersDark) {
+    if (darkMode) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-  }, []);
+  }, [darkMode]);
 
   // Check API configuration on backend
   useEffect(() => {
@@ -34,19 +39,11 @@ export default function App() {
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (next) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      return next;
-    });
+    setDarkMode((prev) => !prev);
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:immersive-gradient-bg text-slate-900 dark:text-slate-200 transition-colors duration-300 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 dark:immersive-gradient-bg text-slate-900 dark:text-slate-200 transition-colors duration-300 flex flex-col font-sans">
       
       {/* Brand Header */}
       <Header 
