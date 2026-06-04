@@ -57,6 +57,8 @@ Generate a comprehensive, tailored resume analysis containing:
 4. Personal Career Learning Roadmap: Visualizable stages (with Duration, Stage Objective, Key Topics, Specific Action Items, and Learning Resources/Certifications).
 5. Highlight 3 target companies or type of roles where they currently fit, with a matched percentage and reason.
 
+CRITICAL: Please write all text fields in Persian (Farsi) language. The candidate's name, professionalTitle, summary, missingSkills (skill, category, description, recommendedCourses), roadmap (phase, duration, objective, topics, actionItems, learningResource), and targetCompanies (companyName, role, reason) should all be output in fluent, highly professional, and natural Persian (Farsi) since the client interface is localized for Persian speakers.
+
 Target Career Goal / Title: ${targetRole || 'Highly matched engineering or professional title based on resume'}
 
 Resume Content:
@@ -189,6 +191,8 @@ ${jobDescription}
 
 Candidate Resume Text:
 ${resumeText}
+
+CRITICAL: Please write all text fields in Persian (Farsi) language. The candidateName, professionalTitle, riskReasoning, stabilityAnalysis, strengths, weaknesses, interviewQuestions, and overallRecommendation fields must all be structured in elegant, high-impact Persian (Farsi) language, appropriate for a standard recruitments assessment report.
 `;
 
     const response = await ai.models.generateContent({

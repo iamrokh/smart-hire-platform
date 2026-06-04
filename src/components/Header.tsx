@@ -18,11 +18,11 @@ export default function Header({ activeModule, setActiveModule, hasApiKey }: Hea
             <Sparkles className="h-5 w-5" id="sparkles-logo-icon" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
-              TalentAI <span className="text-blue-500 dark:text-blue-400 font-light italic text-xs">NEXUS</span>
+            <h1 className="text-lg font-bold text-slate-900 dark:text-white leading-tight tracking-tight pr-1">
+              TalentAI <span className="text-blue-500 dark:text-blue-400 font-light italic text-xs">Nexus</span>
             </h1>
-            <p className="text-[10px] font-mono text-indigo-600 dark:text-slate-400">
-              Career & Recruitment Pivot Platform
+            <p className="text-[10px] font-sans text-indigo-600 dark:text-slate-400">
+              پلتفرم هوشمند توسعه کریر و بهینه‌سازی استخدام
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function Header({ activeModule, setActiveModule, hasApiKey }: Hea
             }`}
           >
             <User className="h-4 w-4" />
-            <span className="hidden sm:inline">Candidate Hub</span>
+            <span className="hidden sm:inline">داشبورد کارجویان (Candidate)</span>
           </button>
           
           <button
@@ -52,21 +52,21 @@ export default function Header({ activeModule, setActiveModule, hasApiKey }: Hea
             }`}
           >
             <Building2 className="h-4 w-4" id="employer-nav-icon" />
-            <span className="hidden sm:inline">Employer Recruiting</span>
+            <span className="hidden sm:inline">پنل کارفرمایان (Employer)</span>
           </button>
         </nav>
 
         {/* API Key Status Signet */}
         <div className="flex items-center gap-3">
           <div
-            className={`hidden md:flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-mono border ${
+            className={`hidden md:flex items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-sans border ${
               hasApiKey
                 ? "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-500/30 dark:glowing-emerald-element"
                 : "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-500/30"
             }`}
           >
             <span className={`h-1.5 w-1.5 rounded-full ${hasApiKey ? "bg-emerald-500 animate-pulse" : "bg-amber-500"}`} />
-            {hasApiKey ? "AI Cloud Live" : "AI Simulation Active"}
+            {hasApiKey ? "اتصال به Live AI" : "حالت Simulation"}
           </div>
           
           <a
@@ -75,7 +75,7 @@ export default function Header({ activeModule, setActiveModule, hasApiKey }: Hea
             rel="noopener noreferrer"
             className="hidden sm:flex text-xs font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 cursor-pointer"
           >
-            AI Studio App
+            برنامه AI Studio
           </a>
         </div>
 

@@ -15,7 +15,12 @@ export default function App() {
   });
   const [hasApiKey, setHasApiKey] = useState(false);
 
-  // Synchronize dark-mode class toggles
+  // Synchronize dark-mode class toggles, direction, and language for Persian RTL
+  useEffect(() => {
+    document.documentElement.dir = "rtl";
+    document.documentElement.lang = "fa";
+  }, []);
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -43,7 +48,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 dark:immersive-gradient-bg text-slate-900 dark:text-slate-200 transition-colors duration-300 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 dark:immersive-gradient-bg text-slate-900 dark:text-slate-200 transition-colors duration-300 flex flex-col font-sans" dir="rtl">
       
       {/* Brand Header */}
       <Header 
@@ -58,9 +63,9 @@ export default function App() {
           
           <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
             <Info className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
-            <span className="hidden sm:inline">Active Workspace:</span>
+            <span className="hidden sm:inline">فضای کار فعال:</span>
             <span className="text-slate-900 dark:text-white bg-white/85 dark:bg-slate-700/85 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-600 font-mono text-[11px]">
-              {activeModule === "candidate" ? "Candidate-Centric Gap Analyzer & Interactive Roadmap" : "Employer Bulk Screener Simulator & Tenure Assessor"}
+              {activeModule === "candidate" ? "آنالیز Skill Gap کارجویان و Roadmap تعاملی" : "شبیه‌ساز غربالگری انبوه رزومه‌ها و ممیزی ثبات کاری برای کارفرمایان"}
             </span>
           </div>
 
@@ -68,7 +73,7 @@ export default function App() {
             {/* Quick Mode Indicator */}
             {!hasApiKey && (
               <span className="text-[10px] bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded flex items-center gap-1">
-                <Zap className="h-3 w-3 shrink-0" /> Simulation Mode
+                <Zap className="h-3 w-3 shrink-0" /> حالت Simulation فعال است
               </span>
             )}
             
@@ -76,18 +81,18 @@ export default function App() {
             <button
               onClick={toggleDarkMode}
               id="theme-mode-toggle"
-              aria-label="Toggle Light and Dark Slate Themes"
+              aria-label="Toggle Light and Dark Themes"
               className="flex items-center gap-1.5 cursor-pointer rounded-lg px-2.5 py-1 bg-white hover:bg-slate-50 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 transition"
             >
               {darkMode ? (
                 <>
                   <Sun className="h-3.5 w-3.5 text-amber-500" />
-                  <span className="text-[11px] font-semibold">Light Mode</span>
+                  <span className="text-[11px] font-semibold">تم روشن</span>
                 </>
               ) : (
                 <>
                   <Moon className="h-3.5 w-3.5 text-indigo-500" />
-                  <span className="text-[11px] font-semibold">Dark Mode</span>
+                  <span className="text-[11px] font-semibold">تم تاریک</span>
                 </>
               )}
             </button>
@@ -113,11 +118,11 @@ export default function App() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <ShieldCheck className="h-4 w-4 text-emerald-500" />
-            <span>Google AI Studio Powered - Enterprise Content Security Enabled</span>
+            <span>قدرت‌گرفته از Google AI Studio — امنیت داده‌ها تضمین شده است</span>
           </div>
           <div>
-            <p className="font-mono text-slate-400 dark:text-slate-500 text-[10px]">
-              Platform Release v3.5 (Flash Model Engine)
+            <p className="font-mono text-slate-400 dark:text-slate-550 text-[10px]">
+              نسخه ۳.۵ پلتفرم (اجرا شده روی مدل Gemini Flash)
             </p>
           </div>
         </div>
